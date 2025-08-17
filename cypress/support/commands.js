@@ -23,3 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('paginaInicial', () => {
+    cy.visit('https://www.saucedemo.com/');
+
+    cy.contains('.login_logo', 'Swag Labs');
+})
