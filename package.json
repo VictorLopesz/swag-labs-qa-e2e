@@ -1,0 +1,25 @@
+{
+  "name": "swag-labs-qa-e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorLopesz/swag-labs-qa-e2e.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorLopesz/swag-labs-qa-e2e/issues"
+  },
+  "homepage": "https://github.com/VictorLopesz/swag-labs-qa-e2e#readme",
+  "devDependencies": {
+    "cypress": "^14.5.4"
+  }
+}
