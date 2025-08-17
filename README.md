@@ -49,7 +49,7 @@ Então devo visualizar a mensagem de erro "Epic sadface: Username is required"
 
 Cenário: Adicionar produto ao carrinho
 
-Dado que estou autenticado com o usuário "standard_user" e senha "secret_sorce"
+Dado que estou autenticado com o usuário "standard_user" e senha "secret_sauce"
 E estou na página de inventário
 Quando adiciono o produto "Sauce Labs Blackpack" ao carrinho
 Então o ícone do carrinho deve exibir "1"
@@ -59,7 +59,7 @@ E ao abrir o carro devo ver o item "Sauce Labs Blackpack" listado
 
 Cenário: Remover produto do carrinho
 
-Dado que estou autenticado com o usuário "standard_user" e senha "secret_sorce"
+Dado que estou autenticado com o usuário "standard_user" e senha "secret_sauce"
 E adiciono o produto "Sauce Labs Blackpack" ao carrinho
 E acesso a página do carrinho
 Quando removo o produto "Sauce Labs Blackpack" do carrinho
@@ -70,7 +70,7 @@ E o ícone do carrinho não deve exibir quantidade
 
 Cenário: Checkout com sucesso
 
-Dado que estou autenticado com o usuário "standard_user" e senha "secret_sorce"
+Dado que estou autenticado com o usuário "standard_user" e senha "secret_sauce"
 E adiciono o produto "Sauce Labs Blackpack" ao carrinho
 E acesso a página do carrinho
 Quando inicio o checkout
@@ -83,7 +83,7 @@ Então devo visualizar a mensagem "THANK YOU FOR YOUR ORDER"
 
 Cenário: Checkout com campos obrigatórios vazios
 
-Dado que estou autenticado com o usuário "standard_user" e senha "secret_sorce"
+Dado que estou autenticado com o usuário "standard_user" e senha "secret_sauce"
 E adiciono o produto "Sauce Labs Blackpack" ao carrinho
 E acesso a página do carrinho
 Quando inicio o checkout
@@ -95,7 +95,7 @@ Então devo visualizar a mensagem de erro "Error: First Name is required"
 
 Cenário: Ordenar produtos por preço (menor para maior)
 
-Dado que estou autenticado com o usuário "standard_user" e senha "secret_sorce"
+Dado que estou autenticado com o usuário "standard_user" e senha "secret_sauce"
 E estou na página de inventário
 Quando ordeno os produtos por "Price (low to high)"
 Então os preços exibidos devem estar em ordem crescente
@@ -103,7 +103,7 @@ Então os preços exibidos devem estar em ordem crescente
 # CT-010
 
 Cenário: Logout com sucesso
-Dado que estou autenticado com o usuário "standard_user" e senha "secret_sorce"
+Dado que estou autenticado com o usuário "standard_user" e senha "secret_sauce"
 E estou na página de inventário
 Quando abro o menu lateral
 E clico em Logout
