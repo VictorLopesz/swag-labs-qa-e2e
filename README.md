@@ -3,9 +3,7 @@
 Como usuário do Swag Labs, quero realizar login, manipular o carrinho e finalizar uma compra para
 validar o funcionamento correto da aplicação.
 
-# Plano de Teste: Swag Labs
-
-[text](https://docs.google.com/spreadsheets/d/1sR9aDBWShZhyX3YnE_k4vTwE2Uq9PJSB7HLsQuKWdNk/edit?usp=sharing)
+[Plano de Teste: Swag Labs](https://docs.google.com/spreadsheets/d/1sR9aDBWShZhyX3YnE_k4vTwE2Uq9PJSB7HLsQuKWdNk/edit?usp=sharing)
 
 # CT-001
 
