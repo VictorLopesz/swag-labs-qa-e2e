@@ -38,3 +38,35 @@ Cypress.Commands.add("login", (usuario, senha) => {
   cy.contains(".title", "Products")
     .should("be.visible");
 });
+
+  Cypress.Commands.add('adicionarItem', (id, nomeItem, adicionar, quantidade) => {
+    cy.contains(id, nomeItem)
+      .should("be.visible");
+    cy.get(adicionar).click();
+    cy.contains(".shopping_cart_badge", quantidade);
+    cy.get(".shopping_cart_badge").click();
+  })
+
+Cypress.Commands.add('dadosCheckout', (nome, sobrenome, cep) => {
+    cy.contains('[class="header_secondary_container"]', 'Checkout')
+      .should('be.visible')
+
+    cy.get('[data-test="firstName"]').type(nome)
+    cy.get('[data-test="lastName"]').type(sobrenome)
+    cy.get('[data-test="postalCode"]').type(cep)
+
+    cy.get('[data-test="continue"]').click()
+})
+
+Cypress.Commands.add('finalizar', () => {
+    cy.contains('[data-test="title"]', 'Checkout: Overview')
+      .should('be.visible')
+
+    cy.contains('[data-test="total-info-label"]', 'Price Total')
+      .should('be.visible')
+    
+    cy.contains('button', 'Finish').click();
+
+    cy.contains('h2', 'Thank you for your order!')
+      .should('be.visible')
+})
