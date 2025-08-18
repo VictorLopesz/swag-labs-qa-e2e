@@ -1,9 +1,21 @@
-## FUNCIONALIDADE: Swag Labs - Autenticação, carrinho e Checkout
+## PROJETO DE TESTES AUTOMATIZADOS: Swag Labs - Autenticação, carrinho e Checkout
 
-Como usuário do Swag Labs, quero realizar login, manipular o carrinho e finalizar uma compra para
-validar o funcionamento correto da aplicação.
+Neste projeto foram realizados testes automatizados para o site [Swag Labs](https://www.saucedemo.com/), utilizando **Cypress** para a validação de funcionalidades críticas como Autenticação, carrinho e Checkout.
+
+---
 
 [Plano de Teste: Swag Labs](https://docs.google.com/spreadsheets/d/1sR9aDBWShZhyX3YnE_k4vTwE2Uq9PJSB7HLsQuKWdNk/edit?usp=sharing)
+
+---
+
+## Ferramentas e Tecnologias utilizadas
+
+- **Linguagem:** JavaScript
+- **Framework de Teste:** Cypress
+- **Controle de Versão:** Git & GitHub
+- **Integração Contínua:** GitHub Actions
+
+---
 
 # CT-001
 
