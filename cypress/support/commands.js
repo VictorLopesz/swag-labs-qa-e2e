@@ -24,21 +24,6 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("paginaInicial", () => {
-  cy.visit("https://www.saucedemo.com/");
-
-  cy.contains(".login_logo", "Swag Labs");
-});
-
-Cypress.Commands.add("login", (usuario, senha) => {
-  cy.get("#user-name").type(usuario);
-  cy.get("#password").type(senha);
-
-  cy.get("#login-button").click();
-  cy.contains(".title", "Products")
-    .should("be.visible");
-});
-
   Cypress.Commands.add('adicionarItem', (id, nomeItem, adicionar, quantidade) => {
     cy.contains(id, nomeItem)
       .should("be.visible");

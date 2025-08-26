@@ -1,10 +1,15 @@
+import Login from "./pages/login";
+import Inventory from "./pages/inventory";
+
 describe("Checkout", () => {
+
   beforeEach(() => {
-    cy.paginaInicial();
+    Login.visitarPagina();
   });
 
   it("CT-007: Checkout com sucesso", () => {
-    cy.login("standard_user", "secret_sauce");
+   Login.credencias("standard_user", "secret_sauce");
+    Inventory.validarAcessoAPagina();
 
     cy.adicionarItem(
       "#item_4_title_link",
@@ -29,7 +34,8 @@ describe("Checkout", () => {
   });
 
   it("CT-008: Checkout com campos obrigatórios vazios", () => {
-    cy.login("standard_user", "secret_sauce");
+   Login.credencias("standard_user", "secret_sauce");
+    Inventory.validarAcessoAPagina();
 
     cy.adicionarItem(
       "#item_4_title_link",
