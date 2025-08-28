@@ -1,4 +1,4 @@
-class Mensagens {
+class Alert {
   
     senhaInvalida() {
     cy.contains(
@@ -20,4 +20,4 @@ class Mensagens {
   }
 }
 
-export default new Mensagens();
+export default new Alert();

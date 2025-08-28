@@ -4,13 +4,12 @@ import Inventory from "./pages/inventory";
 describe("Checkout", () => {
 
   beforeEach(() => {
-    Login.visitarPagina();
+    Login.visitarLoginPage();
+    Login.credencias("standard_user", "secret_sauce");
+    Inventory.validarAcessoAPagina();
   });
 
   it("CT-007: Checkout com sucesso", () => {
-   Login.credencias("standard_user", "secret_sauce");
-    Inventory.validarAcessoAPagina();
-
     cy.adicionarItem(
       "#item_4_title_link",
       "Sauce Labs Backpack",
@@ -34,9 +33,6 @@ describe("Checkout", () => {
   });
 
   it("CT-008: Checkout com campos obrigatórios vazios", () => {
-   Login.credencias("standard_user", "secret_sauce");
-    Inventory.validarAcessoAPagina();
-
     cy.adicionarItem(
       "#item_4_title_link",
       "Sauce Labs Backpack",

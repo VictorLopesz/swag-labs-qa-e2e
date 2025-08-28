@@ -3,11 +3,12 @@ import Inventory from "./pages/inventory";
 
 describe("Produtos", () => {
   beforeEach(() => {
-    Login.visitarPagina();
+    Login.visitarLoginPage();
+    Login.credencias("standard_user", "secret_sauce");
+
   });
 
   it("CT-009: Ordenar produtos por preço (low to high)", () => {
-    Login.credencias("standard_user", "secret_sauce");
     Inventory.validarAcessoAPagina();
     
     cy.get('[data-test="product-sort-container"]')

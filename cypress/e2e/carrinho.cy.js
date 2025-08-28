@@ -3,7 +3,7 @@ import Inventory from "./pages/inventory";
 
 describe("Carrinho", () => {
   beforeEach(() => {
-    Login.visitarPagina();
+    Login.visitarLoginPage();
   });
 
   it("CT-005: Adicionar produto ao carrinho", () => {

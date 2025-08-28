@@ -1,39 +1,38 @@
 import Login from "./pages/login";
 import Inventory from "./pages/inventory";
-import Mensagens from './pages/mensagens/';
-
+import Alert from "./pages/alert";
+import users from "../fixtures/users.json";
 
 describe("Login", () => {
-  beforeEach(() => {
-    Login.visitarPagina();
+  beforeEach(() => Login.visitarLoginPage());
+
+  context("Cenários com sucesso", () => {
+    it("CT-001: Login com sucesso", () => {
+      Login.credencias(users.valid.username, users.valid.password);
+      Inventory.validarAcessoAPagina();
+    });
+
+    it("CT-010: Logout com sucesso", () => {
+      Login.credencias(users.valid.username, users.valid.password);
+      Inventory.menuLateral();
+      Login.logout();
+    });
   });
 
-  it("CT-001: Login com sucesso", () => {
-    Login.credencias("standard_user", "secret_sauce");
-    Inventory.validarAcessoAPagina();
-  });
+  context("Cenários com falha", () => {
+    it("CT-002: Senha inválida", () => {
+      Login.credencias(users.invalid.username, users.invalid.password);
+      Alert.senhaInvalida();
+    });
 
-  it("CT-002: Login com senha inválida", () => {
-    Login.credencias("standard_user", "123");
-    Mensagens.senhaInvalida()
-  
-  });
+    it("CT-003: Usuário bloqueado", () => {
+      Login.credencias(users.blocked.username, users.blocked.password);
+      Alert.usuarioBloqueado();
+    });
 
-  it("CT-003: Login com usuário bloqueado", () => {
-    Login.credencias("locked_out_user", "secret_sauce");
-    Mensagens.usuarioBloqueado()
-
-  });
-
-  it("CT-004: Login com campos em branco", () => {
-    cy.get("#login-button").click();
-    Mensagens.camposEmBranco()
-  });
-
-  it("CT-010: Logout com sucesso", () => {
-    Login.credencias("standard_user", "secret_sauce");
-    Inventory.menuLateral();
-    Login.logout();
-
+    it("CT-004: Campos em branco", () => {
+      Login.credenciaisVazias();
+      Alert.camposEmBranco();
+    });
   });
 });
