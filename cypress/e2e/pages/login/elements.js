@@ -1,5 +1,6 @@
 export const elements = {
-    usuario: '#user-name',
-    senha: '#password',
-    botaoLogin: '#login-button'
+    user: '#user-name',
+    password: '#password',
+    loginBtn: '#login-button',
+    logout: '[data-test="logout-sidebar-link"]'
 }

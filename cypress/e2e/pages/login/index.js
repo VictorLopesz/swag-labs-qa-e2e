@@ -1,27 +1,34 @@
 import { elements as el } from "./elements";
 
 class Login {
-  visitarLoginPage() {
+  goToLoginPage() {
     cy.visit("https://www.saucedemo.com/");
-    cy.url().should("include", "/");
+    cy.url()
+      .should("include", "/");
   }
 
-  credencias(usuario, senha) {
-    cy.get(el.usuario).type(usuario);
-    cy.get(el.senha).type(senha);
-    cy.get(el.botaoLogin).click();
+  loginWithCredentials(user, password) {
+    cy.get(el.user).type(user);
+    cy.get(el.password).type(password);
+    cy.get(el.loginBtn).click();
   }
 
   logout() {
-    cy.contains('[data-test="logout-sidebar-link"]', "Logout").click();
-    cy.get('[data-test="username"]').should("be.visible");
-    cy.url().should("include", "/");
+    cy.contains(el.logout, "Logout").click();
+    cy.get(el.user)
+      .should("be.visible");
+
+    cy.url()
+      .should("include", "/");
   }
 
-  credenciaisVazias() {
-    cy.get(el.usuario).should('have.value', '')
-    cy.get(el.senha).should('have.value', '')
-    cy.get("#login-button").click();
+  loginWithEmptyFields() {
+    cy.get(el.user)
+      .should('have.value', '')
+    cy.get(el.password)
+      .should('have.value', '')
+    cy.get(el.loginBtn)
+      .click();
   }
 }
 

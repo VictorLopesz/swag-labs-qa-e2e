@@ -1,12 +1,13 @@
 import Login from "./pages/login";
 import Inventory from "./pages/inventory";
+import users from "../fixtures/users.json";
 
 describe("Checkout", () => {
 
   beforeEach(() => {
-    Login.visitarLoginPage();
-    Login.credencias("standard_user", "secret_sauce");
-    Inventory.validarAcessoAPagina();
+    Login.goToLoginPage();
+    Login.loginWithCredentials(users.valid.username, users.valid.password);
+    Inventory.verifyPageAccess();
   });
 
   it("CT-007: Checkout com sucesso", () => {
@@ -17,13 +18,11 @@ describe("Checkout", () => {
       1
     );
 
-    cy.contains(".header_secondary_container", "Your Cart").should(
-      "be.visible"
-    );
+    cy.contains(".header_secondary_container", "Your Cart")
+      .should("be.visible");
 
-    cy.contains('[data-test="cart-list"]', "Sauce Labs Backpack").should(
-      "be.visible"
-    );
+    cy.contains('[data-test="cart-list"]', "Sauce Labs Backpack")
+      .should("be.visible");
 
     cy.get('[data-test="checkout"]').click();
 

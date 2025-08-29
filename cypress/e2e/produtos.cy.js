@@ -1,15 +1,15 @@
 import Login from "./pages/login";
 import Inventory from "./pages/inventory";
+import users from "../fixtures/users.json";
 
 describe("Produtos", () => {
   beforeEach(() => {
-    Login.visitarLoginPage();
-    Login.credencias("standard_user", "secret_sauce");
-
+    Login.goToLoginPage();
+    Login.loginWithCredentials(users.valid.username, users.valid.password);
+    Inventory.verifyPageAccess();
   });
 
   it("CT-009: Ordenar produtos por preço (low to high)", () => {
-    Inventory.validarAcessoAPagina();
     
     cy.get('[data-test="product-sort-container"]')
       .select('lohi')

@@ -1,15 +1,16 @@
 import Login from "./pages/login";
 import Inventory from "./pages/inventory";
+import users from "../fixtures/users.json";
 
 describe("Carrinho", () => {
+
   beforeEach(() => {
-    Login.visitarLoginPage();
+    Login.goToLoginPage();
+    Login.loginWithCredentials(users.valid.username, users.valid.password);
+    Inventory.verifyPageAccess();
   });
 
   it("CT-005: Adicionar produto ao carrinho", () => {
-    Login.credencias("standard_user", "secret_sauce");
-    Inventory.validarAcessoAPagina();
-
     cy.adicionarItem(
       "#item_4_title_link",
       "Sauce Labs Backpack",
@@ -17,19 +18,14 @@ describe("Carrinho", () => {
       1
     );
 
-    cy.contains(".header_secondary_container", "Your Cart").should(
-      "be.visible"
-    );
+    cy.contains(".header_secondary_container", "Your Cart")
+      .should("be.visible");
 
-    cy.contains('[data-test="cart-list"]', "Sauce Labs Backpack").should(
-      "be.visible"
-    );
+    cy.contains('[data-test="cart-list"]', "Sauce Labs Backpack")
+      .should("be.visible");
   });
 
   it("CT-006: Remover produto do carrinho", () => {
-    Login.credencias("standard_user", "secret_sauce");
-    Inventory.validarAcessoAPagina();
-
     cy.adicionarItem(
       "#item_4_title_link",
       "Sauce Labs Backpack",
@@ -37,16 +33,15 @@ describe("Carrinho", () => {
       1
     );
 
-    cy.contains(".header_secondary_container", "Your Cart").should(
-      "be.visible"
-    );
+    cy.contains(".header_secondary_container", "Your Cart")
+      .should("be.visible");
 
-    cy.contains('[data-test="cart-list"]', "Sauce Labs Backpack").should(
-      "be.visible"
-    );
+    cy.contains('[data-test="cart-list"]', "Sauce Labs Backpack")
+      .should("be.visible");
 
     cy.get('[data-test="remove-sauce-labs-backpack"]').click();
 
-    cy.contains(".shopping_cart_badge", 1).should("not.exist");
+    cy.contains(".shopping_cart_badge", 1)
+      .should("not.exist");
   });
 });
